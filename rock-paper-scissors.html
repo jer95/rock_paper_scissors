@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Rock-Paper-Scissors</title>
+        <script>
+
+            // Goal: Create function that randomly returns 1 of 3 possible strings (rock,paper,scissors).
+                // Output: 1 of 3 predefined strings will randomly be selected and returned.
+                    // 1. Define a list of 3 strings.
+                    // 2. Generate random number between 1 and 3.
+                    // 3. Use the random number to select 1 of 3 strings and return it.
+
+                        function getComputerChoice(){
+                            const choiceArr = ["Rock","Paper","Scissors"]
+                            let randomNum = Math.ceil(Math.random() * 3) - 1
+                            return choiceArr[randomNum];
+                            }
+        </script>
+    </head>
+</html>
