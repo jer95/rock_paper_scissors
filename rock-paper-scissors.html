@@ -7,6 +7,7 @@
         <script>
 
             // Goal: Create function that randomly returns 1 of 3 possible strings (rock,paper,scissors).
+
                 // Output: 1 of 3 predefined strings will randomly be selected and returned.
                     // 1. Define a list of 3 strings.
                     // 2. Generate random number between 1 and 3.
@@ -17,6 +18,40 @@
                             let randomNum = Math.ceil(Math.random() * 3) - 1
                             return choiceArr[randomNum];
                             }
+
+
+            // Goal: Create function that takes 2 parameters, compares the values and returns a string.
+
+                // Output: A string that declares the winner of the round.
+                // 1. Compare playerSelection to cpuSelection.
+                // 2. If playerSelection is equal to cpuSelection return "tie".
+                // 3. If playerSelection is "rock" and cpuSelection is "scissors" return "You win!".
+                // 4. If playerSelection is "rock" and cpuSelection is "paper" return "You lose!".
+                // 5. If playerSelection is "paper" and cpuSelection is "rock" return "You win!".
+                // 6. If playerSelection is "paper" and cpuSelection is "scissors" return "You lose!".
+                // 7. If playerSelection is "scissors" and cpuSelection is "rock" return "You lose"!.
+                // 8. If playerSelection is "scissors" and cpuSelection is "paper" return "You win!".
+
+                        function playRound(playerSelection,cpuSelection){
+                            if (playerSelection === cpuSelection) {
+                                return "Tie";
+                            } else if(playerSelection === "Rock" && cpuSelection === "Scissors"){
+                                return "You win!";
+                            } else if(playerSelection === "Rock" && cpuSelection === "Paper"){
+                                return "You lose!";
+                            } else if(playerSelection === "Paper" && cpuSelection === "Rock"){
+                                return "You win!";
+                            } else if(playerSelection === "Paper" && cpuSelection === "Scissors"){
+                                return "You lose!";
+                            } else if(playerSelection === "Scissors" && cpuSelection === "Rock"){
+                                return "You lose!";
+                            } else if(playerSelection === "Scissors" && cpuSelection === "Paper"){
+                                return "You win!";
+                            }
+                        }
+                         
+                        const playerSelection = prompt("Please enter your selection :")
+                        const cpuSelection = getComputerChoice()
         </script>
     </head>
 </html>
