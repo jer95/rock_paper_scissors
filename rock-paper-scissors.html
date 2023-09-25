@@ -32,7 +32,8 @@
                 // 7. If playerSelection is "scissors" and cpuSelection is "rock" return "You lose"!.
                 // 8. If playerSelection is "scissors" and cpuSelection is "paper" return "You win!".
 
-                        function playRound(playerSelection,cpuSelection){
+                        function playRound(cpuSelection){
+                            const playerSelection = prompt("Please enter your selection :")
                             if (playerSelection === cpuSelection) {
                                 return "Tie";
                             } else if(playerSelection === "Rock" && cpuSelection === "Scissors"){
@@ -50,8 +51,6 @@
                             }
                         }
                          
-                        const playerSelection = prompt("Please enter your selection :")
-                        const cpuSelection = getComputerChoice()
 
             // Goal : Create function that calls playRound function 5 times, records wins & losses, and returns winner.
                     
@@ -69,8 +68,9 @@
                         let result;
                            
                             for (let a = 1; a <= 5; a ++ ){
-
-                            let roundResult = playRound(playerSelection,cpuSelection);
+                            
+                            const cpuSelection = getComputerChoice()
+                            let roundResult = playRound(cpuSelection);
 
                                 if(roundResult === "Tie"){
                                     alert("Tie!")
@@ -92,7 +92,6 @@
                                 }
                                 return result;
                         }
-                        
         </script>
     </head>
 </html>
