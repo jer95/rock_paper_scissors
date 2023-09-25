@@ -52,6 +52,46 @@
                          
                         const playerSelection = prompt("Please enter your selection :")
                         const cpuSelection = getComputerChoice()
+
+            // Goal : Create function that calls playRound function 5 times, records wins & losses, and returns winner.
+                    
+                // Output: A string that declares the winner of all 5 rounds.
+                // 1. Create a loop that iterates 5 times.
+                // 2. Define 2 variables that will contain the scores and 1 for the result.
+                // 3. Call the playRound function.
+                // 4. If player wins round increment player score else increment computer score.
+                // 5. Assign a string to result depending on score comparison and return result.
+
+                        function game(){
+
+                        let playerScore = 0;
+                        let cpuScore = 0;
+                        let result;
+                           
+                            for (let a = 1; a <= 5; a ++ ){
+
+                            roundResult = playRound();
+
+                                if(roundResult === "Tie"){
+                                    alert("Tie!")
+                                } 
+                                else if(roundResult === "You win!"){
+                                    ++playerScore;
+                                    alert("Player wins the round!")
+                                } 
+                                else {
+                                    ++cpuScore;
+                                    alert("CPU wins the round!")
+                                }
+                            }
+
+                                if(playerScore > cpuScore) {
+                                    result = "You Win, Congratulations!"
+                                } else {
+                                    result = "You Lost, Try Again"
+                                }
+                                return result;
+                        }
         </script>
     </head>
 </html>
