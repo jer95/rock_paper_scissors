@@ -14,7 +14,7 @@
                     // 3. Use the random number to select 1 of 3 strings and return it.
 
                         function getComputerChoice(){
-                            const choiceArr = ["Rock","Paper","Scissors"]
+                            const choiceArr = ["rock","paper","scissors"]
                             let randomNum = Math.floor(Math.random() * 3)
                             return choiceArr[randomNum];
                             }
@@ -33,20 +33,23 @@
                 // 8. If playerSelection is "scissors" and cpuSelection is "paper" return "You win!".
 
                         function playRound(cpuSelection){
-                            const playerSelection = prompt("Please enter your selection :")
+
+                            let playerSelection = prompt("Please enter your selection :")
+                                playerSelection = playerSelection.toLowerCase()
+
                             if (playerSelection === cpuSelection) {
                                 return "Tie";
-                            } else if(playerSelection === "Rock" && cpuSelection === "Scissors"){
+                            } else if(playerSelection === "rock" && cpuSelection === "scissors"){
                                 return "Player";
-                            } else if(playerSelection === "Rock" && cpuSelection === "Paper"){
+                            } else if(playerSelection === "rock" && cpuSelection === "paper"){
                                 return "Cpu";
-                            } else if(playerSelection === "Paper" && cpuSelection === "Rock"){
+                            } else if(playerSelection === "paper" && cpuSelection === "rock"){
                                 return "Player";
-                            } else if(playerSelection === "Paper" && cpuSelection === "Scissors"){
+                            } else if(playerSelection === "paper" && cpuSelection === "scissors"){
                                 return "Cpu";
-                            } else if(playerSelection === "Scissors" && cpuSelection === "Rock"){
+                            } else if(playerSelection === "scissors" && cpuSelection === "rock"){
                                 return "Player";
-                            } else if(playerSelection === "Scissors" && cpuSelection === "Paper"){
+                            } else if(playerSelection === "scissors" && cpuSelection === "paper"){
                                 return "Cpu";
                             }
                         }
@@ -94,6 +97,7 @@
                                 }
                                  console.log(result);
                         }
+                        game()
         </script>
     </head>
 </html>
