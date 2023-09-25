@@ -36,17 +36,17 @@
                             if (playerSelection === cpuSelection) {
                                 return "Tie";
                             } else if(playerSelection === "Rock" && cpuSelection === "Scissors"){
-                                return "You win!";
+                                return "Player";
                             } else if(playerSelection === "Rock" && cpuSelection === "Paper"){
-                                return "You lose!";
+                                return "Cpu";
                             } else if(playerSelection === "Paper" && cpuSelection === "Rock"){
-                                return "You win!";
+                                return "Player";
                             } else if(playerSelection === "Paper" && cpuSelection === "Scissors"){
-                                return "You lose!";
+                                return "Cpu";
                             } else if(playerSelection === "Scissors" && cpuSelection === "Rock"){
-                                return "You lose!";
+                                return "Player";
                             } else if(playerSelection === "Scissors" && cpuSelection === "Paper"){
-                                return "You win!";
+                                return "Cpu";
                             }
                         }
                          
@@ -75,13 +75,13 @@
                                 if(roundResult === "Tie"){
                                     alert("Tie!")
                                 } 
-                                else if(roundResult === "You win!"){
+                                else if(roundResult === "Player"){
                                     ++playerScore;
                                     alert("Player wins the round!")
                                 } 
                                 else {
                                     ++cpuScore;
-                                    alert("CPU wins the round!")
+                                    alert("Cpu wins the round! :(")
                                 }
                             }
 
