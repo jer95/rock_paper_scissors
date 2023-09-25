@@ -73,15 +73,15 @@
                             let roundResult = playRound(cpuSelection);
 
                                 if(roundResult === "Tie"){
-                                    alert("Tie!")
+                                    console.log("Tie!")
                                 } 
                                 else if(roundResult === "Player"){
                                     ++playerScore;
-                                    alert("Player wins the round!")
+                                    console.log("Player wins the round!")
                                 } 
                                 else {
                                     ++cpuScore;
-                                    alert("Cpu wins the round! :(")
+                                    console.log("Cpu wins the round! :(")
                                 }
                             }
 
@@ -90,7 +90,7 @@
                                 } else {
                                     result = "You Lost, Try Again"
                                 }
-                                return result;
+                                return console.log(result);
                         }
         </script>
     </head>
