@@ -85,12 +85,14 @@
                                 }
                             }
 
-                                if(playerScore > cpuScore) {
-                                    result = "You Win, Congratulations!"
-                                } else {
-                                    result = "You Lost, Try Again"
+                                if(playerScore == cpuScore) {
+                                    result = "Tie game!, Run it back?"
+                                } else if(playerScore < cpuScore) {
+                                    result = "You Lost!, Try Again!"
+                                } else{
+                                    result = "You Win!, Congratulations!"
                                 }
-                                return console.log(result);
+                                 console.log(result);
                         }
         </script>
     </head>
