@@ -4,100 +4,93 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Rock-Paper-Scissors</title>
+    </head>
+    <body>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+
         <script>
 
-            // Goal: Create function that randomly returns 1 of 3 possible strings (rock,paper,scissors).
-
-                // Output: 1 of 3 predefined strings will randomly be selected and returned.
-                    // 1. Define a list of 3 strings.
-                    // 2. Generate random number between 1 and 3.
-                    // 3. Use the random number to select 1 of 3 strings and return it.
-
-                        function getComputerChoice(){
-                            const choiceArr = ["rock","paper","scissors"]
-                            let randomNum = Math.floor(Math.random() * 3)
-                            return choiceArr[randomNum];
-                            }
+    
+            function getComputerChoice(){
+                const choiceArr = ["rock","paper","scissors"]
+                let randomNum = Math.floor(Math.random() * 3)
+                return choiceArr[randomNum];
+                }
 
 
-            // Goal: Create function that takes 2 parameters, compares the values and returns a string.
 
-                // Output: A string that declares the winner of the round.
-                // 1. Compare playerSelection to cpuSelection.
-                // 2. If playerSelection is equal to cpuSelection return "tie".
-                // 3. If playerSelection is "rock" and cpuSelection is "scissors" return "You win!".
-                // 4. If playerSelection is "rock" and cpuSelection is "paper" return "You lose!".
-                // 5. If playerSelection is "paper" and cpuSelection is "rock" return "You win!".
-                // 6. If playerSelection is "paper" and cpuSelection is "scissors" return "You lose!".
-                // 7. If playerSelection is "scissors" and cpuSelection is "rock" return "You lose"!.
-                // 8. If playerSelection is "scissors" and cpuSelection is "paper" return "You win!".
 
-                        function playRound(cpuSelection){
+            function playRound(playerSelection){
 
-                            let playerSelection = prompt("Please enter your selection :")
-                                playerSelection = playerSelection.toLowerCase()
+                const cpuSelection = getComputerChoice();
 
-                            if (playerSelection === cpuSelection) {
-                                return "Tie";
-                            } else if(playerSelection === "rock" && cpuSelection === "scissors"){
-                                return "Player";
-                            } else if(playerSelection === "rock" && cpuSelection === "paper"){
-                                return "Cpu";
-                            } else if(playerSelection === "paper" && cpuSelection === "rock"){
-                                return "Player";
-                            } else if(playerSelection === "paper" && cpuSelection === "scissors"){
-                                return "Cpu";
-                            } else if(playerSelection === "scissors" && cpuSelection === "rock"){
-                                return "Player";
-                            } else if(playerSelection === "scissors" && cpuSelection === "paper"){
-                                return "Cpu";
-                            }
-                        }
-                         
+                if (playerSelection === cpuSelection) {
+                    return "Tie";
+                } else if(playerSelection === "rock" && cpuSelection === "scissors"){
+                    return "Player";
+                } else if(playerSelection === "rock" && cpuSelection === "paper"){
+                    return "Cpu";
+                } else if(playerSelection === "paper" && cpuSelection === "rock"){
+                    return "Player";
+                } else if(playerSelection === "paper" && cpuSelection === "scissors"){
+                    return "Cpu";
+                } else if(playerSelection === "scissors" && cpuSelection === "rock"){
+                    return "Player";
+                } else if(playerSelection === "scissors" && cpuSelection === "paper"){
+                    return "Cpu";
+                }
+            }
 
-            // Goal : Create function that calls playRound function 5 times, records wins & losses, and returns winner.
-                    
-                // Output: A string that declares the winner of all 5 rounds.
-                // 1. Create a loop that iterates 5 times.
-                // 2. Define 2 variables that will contain the scores and 1 for the result.
-                // 3. Call the playRound function.
-                // 4. If player wins round increment player score else increment computer score.
-                // 5. Assign a string to result depending on score comparison and return result.
+            function game(playerSelection){
 
-                        function game(){
+            let playerScore = 0;
+            let cpuScore = 0;
+            let result;
 
-                        let playerScore = 0;
-                        let cpuScore = 0;
-                        let result;
-                           
-                            for (let a = 1; a <= 5; a ++ ){
-                            
-                            const cpuSelection = getComputerChoice()
-                            let roundResult = playRound(cpuSelection);
 
-                                if(roundResult === "Tie"){
-                                    console.log("Tie!")
-                                } 
-                                else if(roundResult === "Player"){
-                                    ++playerScore;
-                                    console.log("Player wins the round!")
-                                } 
-                                else {
-                                    ++cpuScore;
-                                    console.log("Cpu wins the round! :(")
-                                }
-                            }
+    
+            let roundResult = playRound(playerSelection);
 
-                                if(playerScore == cpuScore) {
-                                    result = "Tie game!, Run it back?"
-                                } else if(playerScore < cpuScore) {
-                                    result = "You Lost!, Try Again!"
-                                } else{
-                                    result = "You Win!, Congratulations!"
-                                }
-                                 console.log(result);
-                        }
-                        game()
+            if(roundResult === "Tie"){
+            console.log("Tie!")
+            } 
+            else if(roundResult === "Player"){
+            ++playerScore;
+            console.log("Player wins the round!")
+            } 
+            else {
+            ++cpuScore;
+            console.log("Cpu wins the round! :(")
+            }
+    
+
+            if(playerScore == cpuScore) {
+            result = "Tie game!, Run it back?"
+            } else if(playerScore < cpuScore) {
+            result = "You Lost!, Try Again!"
+            } else{
+            result = "You Win!, Congratulations!"
+            }
+            console.log(result);
+            }   
+             
+
+            
+                const rock = document.querySelector('#rock');
+                const paper = document.querySelector('#paper');
+                const scissors = document.querySelector('#scissors');
+
+                rock.addEventListener('click',() => {
+                    game('rock');
+                })
+                paper.addEventListener('click',() => {
+                    game('paper');
+                })
+                scissors.addEventListener('click',() => {
+                    game('scissors');
+                })
         </script>
-    </head>
+    </body>
 </html>
