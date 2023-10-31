@@ -9,6 +9,8 @@
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
+        <div>Round result: <span id="round-outcome"></span></div>
+        <div id="game-result">Game Result:</div>
 
         <script>
 
@@ -48,21 +50,22 @@
             let playerScore = 0;
             let cpuScore = 0;
             let result;
-
+           
+            roundOutcome.textContent = ""
 
     
             let roundResult = playRound(playerSelection);
 
             if(roundResult === "Tie"){
-            console.log("Tie!")
+            roundOutcome.textContent = "Tie :/";
             } 
             else if(roundResult === "Player"){
             ++playerScore;
-            console.log("Player wins the round!")
+            roundOutcome.textContent = "Player wins the round :)"
             } 
             else {
             ++cpuScore;
-            console.log("Cpu wins the round! :(")
+           roundOutcome.textContent = "Cpu wins the round :("
             }
     
 
@@ -81,6 +84,7 @@
                 const rock = document.querySelector('#rock');
                 const paper = document.querySelector('#paper');
                 const scissors = document.querySelector('#scissors');
+                let roundOutcome = document.querySelector('#round-outcome')
 
                 rock.addEventListener('click',() => {
                     game('rock');
