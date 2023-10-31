@@ -9,10 +9,15 @@
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
+        <div>Player Score: <span id ="player-score"></span></div>
+        <div>CPU Score: <span id="cpu-score"></span></div>
         <div>Round result: <span id="round-outcome"></span></div>
-        <div id="game-result">Game Result:</div>
+        <div>Game Result: <span id="game-result"></span></div>
 
         <script>
+
+            let playerScore = 0;
+            let cpuScore = 0;
 
     
             function getComputerChoice(){
@@ -47,10 +52,9 @@
 
             function game(playerSelection){
 
-            let playerScore = 0;
-            let cpuScore = 0;
-            let result;
-           
+        
+        
+            gameResult.textContent = ""
             roundOutcome.textContent = ""
 
     
@@ -62,29 +66,40 @@
             else if(roundResult === "Player"){
             ++playerScore;
             roundOutcome.textContent = "Player wins the round :)"
+            playerScoreElement.textContent = playerScore;
             } 
             else {
             ++cpuScore;
            roundOutcome.textContent = "Cpu wins the round :("
+           cpuScoreElement.textContent = cpuScore;
             }
     
-
-            if(playerScore == cpuScore) {
-            result = "Tie game!, Run it back?"
-            } else if(playerScore < cpuScore) {
-            result = "You Lost!, Try Again!"
-            } else{
-            result = "You Win!, Congratulations!"
+            
+            if(cpuScore == 5) {
+            gameResult.textContent = "You Lost!, Try Again!"
+            cpuScore = 0;
+            cpuScoreElement.textContent = cpuScore;
+            playerScore = 0;
+            playerScoreElement.textContent = playerScore;
+            } else if (playerScore == 5) {
+            gameResult.textContent = "You Win!, Congratulations!"
+            playerScore = 0;
+            playerScoreElement.textContent = playerScore
+            cpuScore = 0;
+            cpuScoreElement.textContent = cpuScore;
             }
-            console.log(result);
-            }   
+            }       
              
 
             
                 const rock = document.querySelector('#rock');
                 const paper = document.querySelector('#paper');
                 const scissors = document.querySelector('#scissors');
-                let roundOutcome = document.querySelector('#round-outcome')
+
+                let roundOutcome = document.querySelector('#round-outcome');
+                let playerScoreElement = document.querySelector('#player-score');
+                let cpuScoreElement = document.querySelector('#cpu-score')
+                let gameResult = document.querySelector('#game-result');
 
                 rock.addEventListener('click',() => {
                     game('rock');
